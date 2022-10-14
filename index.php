@@ -1,5 +1,5 @@
 <?php
-  include "logic.php";
+  include "Sky_Project/logic.php";
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +23,12 @@
     <div class="">
       <a href="create.php">+ Create a new post</a>
     </div>
+
+    <?php foreach($fetch as $f) {?>
+      <h5><?= $f['title'] ?></h5>
+      <p><?= $f['content'] ?></p>
+      <button><a href="">Read more</a></button>
+    <?php}?>
 
   </div>
 </body>
