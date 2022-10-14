@@ -31,17 +31,23 @@
     </div>
 
     <?php foreach($fetch as $f) { ?>
-      <h5><?= $f['title'] ?></h5>
-      <p><?= $f['content'] ?></p>
+      <div class="card p-3 my-3">
+        <h1 class=""><?= $f['title'] ?></h1>
+        <div class="card-body">
+          <h3><?= $f['content'] ?></h3>
 
-      <form action="GET">
-        <button><a href="delete.php?id=<?= $f['id']?>">supprimer</a></button>
-      </form>
-      <p><?php $f['coment_content'] ?></p>
-      <form action="POST">
-        <textarea name="comment_content" placeholder="Comment"></textarea>
-        <button name="new_comment"></button>
-      </form>
+          <button class="btn btn-danger" name="delete_article">Supprimer l'article</button>
+          <div class="mt-3 card-header">
+            <form class="my-5" action="GET">
+              <textarea name="comment_content"cols="12" rows="4" placeholder="comment"></textarea>
+              <button class="btn btn-success" name="new_comment">Publier</button>
+              <p><?= $f['comment_content'] ?></p>
+              <button class="btn btn-primary" name="update_commente">Modifier</button>
+              <button class="btn btn-danger" name="delete_comment" class="btn"><a href="delete.php?id=<?= $f['id']?>">supprimer</a></button>
+            </form>
+          </div>
+        </div>
+      </div>
     <?php } ?>
 
   </div>

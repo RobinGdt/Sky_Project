@@ -12,10 +12,14 @@ if(isset($_POST["new_post"])){
     'content' => $content
   ]);
 
+<<<<<<< HEAD
 
   $fetch = $stmt->fetch();
   header('Location: index.php?info=aded');
   exit();
+=======
+  header("Location: index.php");
+>>>>>>> 29f1d5cc2ea5c0612cd03694746f0da40db9f2be
 }
 
 ?>
