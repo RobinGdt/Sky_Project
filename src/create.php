@@ -35,7 +35,7 @@ if(isset($_POST["new_post"])){
     <form method="POST">
       <input type="text" name="title" placeholder="Titre">
       <textarea name="content" id="" cols="30" rows="10"></textarea>
-      <button name="new_post">Publier</button>
+      <button name="new_post" class="btn btn-dark">Publier</button>
     </form>
   </div>
 
