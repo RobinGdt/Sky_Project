@@ -9,9 +9,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-  <?php if (isset($_REQUEST['info'])){?>
+  <?php if (isset($_REQUEST['info'])){ ?>
     <?php if ($_REQUEST['info'] == "added"){?>
       <div class="">
         Post as been added succesfully
@@ -24,23 +25,19 @@
       <a href="create.php">+ Create a new post</a>
     </div>
 
-    <?php foreach($fetch as $f) {?>
+    <?php foreach($fetch as $f) { ?>
       <h5><?= $f['title'] ?></h5>
       <p><?= $f['content'] ?></p>
-<<<<<<< HEAD:index.php
+
       <button name="delete_article">Supprimer l'article</button>
       <form action="GET">
         <textarea name="comment_content"cols="12" rows="4" placeholder="comment"></textarea>
         <button name="new_comment">Publier</button>
         <p><?= $f['comment_content'] ?></p>
         <button name="update_commente">Modifier</button>
-        <button name="delete_comment">Supprimer</button>
+        <button name="delete_comment" class="btn">Supprimer</button>
       </form>
-    <?php}?>
-=======
-      <button><a href="">Read more</a></button>
     <?php } ?>
->>>>>>> c8567db893ace5cd9777c87cec4a2fc2ee470fa5:src/index.php
 
   </div>
 </body>
