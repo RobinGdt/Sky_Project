@@ -7,7 +7,8 @@ CREATE TABLE `users` (
 CREATE TABLE `articles` (
     `id` int(11) NOT NULL,
     `title` varchar(50) NOT NULL,
-    `content` varchar(255) NOT NULL
+    `content` varchar(255) NOT NULL,
+    `comment` varchar(255) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `users`
