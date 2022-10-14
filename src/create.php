@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once 'logic.php';
 
@@ -6,18 +6,16 @@ if(isset($_POST["new_post"])){
   $title = $_REQUEST['title'];
   $content = $_REQUEST['content'];
 
-  echo 'title : '. $title;
-
   $stmt = $pdo->prepare("INSERT INTO articles(title,content) VALUES(:title, :content)");
   $stmt->execute([
     'title' => $title,
     'content' => $content
   ]);
-  
-  $fetch = $stmt->fetch();
 
-  echo "Post created succefully";
-  header("Location: index.php?info=added");
+
+  $fetch = $stmt->fetch();
+  header('Location: index.php?info=aded');
+  exit();
 }
 
 ?>

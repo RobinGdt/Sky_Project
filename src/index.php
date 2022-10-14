@@ -1,5 +1,9 @@
 <?php
   require_once "logic.php";
+
+  $fetch = $pdo->prepare('SELECT * FROM articles');
+  $fetch->execute();
+
 ?>
 
 <!DOCTYPE html>
@@ -23,20 +27,20 @@
 
   <div class="container">
     <div class="">
-      <a href="create.php">+ Create a new post</a>
+      <a href="create.php">+ Create a new post +</a>
     </div>
 
     <?php foreach($fetch as $f) { ?>
       <h5><?= $f['title'] ?></h5>
       <p><?= $f['content'] ?></p>
 
-      <button name="delete_article">Supprimer l'article</button>
       <form action="GET">
-        <textarea name="comment_content"cols="12" rows="4" placeholder="comment"></textarea>
-        <button name="new_comment">Publier</button>
-        <p><?= $f['comment_content'] ?></p>
-        <button name="update_commente">Modifier</button>
-        <button name="delete_comment" class="btn">Supprimer</button>
+        <button><a href="delete.php?id=<?= $f['id']?>">supprimer</a></button>
+      </form>
+      <p><?php $f['coment_content'] ?></p>
+      <form action="POST">
+        <textarea name="comment_content" placeholder="Comment"></textarea>
+        <button name="new_comment"></button>
       </form>
     <?php } ?>
 
