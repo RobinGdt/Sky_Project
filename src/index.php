@@ -1,5 +1,5 @@
 <?php
-  include "Sky_Project/logic.php";
+  require_once "logic.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,12 +12,12 @@
 </head>
 <body>
   <?php if (isset($_REQUEST['info'])){?>
-    <?php if (isset($_REQUEST['info'] == "added")){?>
+    <?php if ($_REQUEST['info'] == "added"){?>
       <div class="">
         Post as been added succesfully
       </div>
-    <?php}?>
-  <?php}?>
+    <?php } ?>
+  <?php } ?>
 
   <div class="container">
     <div class="">
@@ -28,7 +28,7 @@
       <h5><?= $f['title'] ?></h5>
       <p><?= $f['content'] ?></p>
       <button><a href="">Read more</a></button>
-    <?php}?>
+    <?php } ?>
 
   </div>
 </body>
