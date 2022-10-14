@@ -1,3 +1,4 @@
+# setup 
 <?php
 
 $sname= "localhost";
@@ -6,15 +7,19 @@ $unmae= "root";
 
 $password = "";
 
-$db_name = "test_db";
+$db_name = "dump.sql";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);
+
+# gestion de l'échec de la connexion
 
 if (!$conn) {
 
     echo "pas de chance";
 
 }
+
+# setup session/authentification
 
 session_start(); 
 
@@ -34,6 +39,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
     }
 
+# gestion des champs non remplis
 
  $uname = validate($_POST['uname']);
 
@@ -52,6 +58,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         exit();
 
     }else{
+
+# confirmation de l'authentification
 
         $sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
 
@@ -77,6 +85,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
             }else{
 
+# gestion des identifiants incorrects
+
                 header("Location: index.php?error=les calculs sont pas bons");
 
                 exit();
@@ -93,9 +103,11 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
     }
 
+# ok
+
 }else{
 
-    header("Location: index.php");
+    header("Location: create.php");
 
     exit();
 
