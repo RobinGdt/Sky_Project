@@ -1,8 +1,12 @@
 <?php
+
+  //phpinfo();
+  $fetch = array();
+
   try{
-    $pdo= new PDO('mysql:host=localhost:8080;dbname=db', 'root', 'root');
+    $pdo= new PDO('mysql:host=db:3306;dbname=data', 'root', 'root');
   } catch(Exception $e) {
-      die('Erreur : '.$e->getMessage());
+    die('Erreur : '.$e->getMessage());
   };
 
   $sql = "SELECT * FROM data";
@@ -11,8 +15,11 @@
     $title = $_REQUEST['title'];
     $content = $_REQUEST['content'];
 
-    $stmt = $pdo->prepare("INSERT INTO data(title,content) VALUES('$title', '$content)");
-    $stmt->execute();
+    $stmt = $pdo->prepare("INSERT INTO data(title,content) VALUES(':title', ':content')");
+    $stmt->execute([
+      'title' => $title,
+      'content' => $content
+    ]);
     $fetch = $stmt->fetch();
 
     echo "Post created succefully";
