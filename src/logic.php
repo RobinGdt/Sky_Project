@@ -1,10 +1,9 @@
 <?php
   try{
-    $pdo= new PDO('mysql:host=localhost:8888;dbname=madb', 'root', 'root');
-  }
-  catch(Exeption $e){
-      die('Erreur : '.$e->getMessage())
-  }
+    $pdo= new PDO('mysql:host=localhost:8080;dbname=db', 'root', 'root');
+  } catch(Exception $e) {
+      die('Erreur : '.$e->getMessage());
+  };
 
   $sql = "SELECT * FROM data";
 
