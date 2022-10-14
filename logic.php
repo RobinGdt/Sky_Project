@@ -14,6 +14,7 @@
 
     $stmt = $pdo->prepare("INSERT INTO data(title,content) VALUES('$title', '$content)");
     $stmt->execute();
+    $fetch = $stmt->fetch();
 
     echo "Post created succefully";
     header("Location: index.php?info=added");
