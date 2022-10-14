@@ -9,30 +9,6 @@
     die('Erreur : '.$e->getMessage());
   };
 
-  $sql = "SELECT * FROM data";
-
-  if(isset($_REQUEST["new_post"])){
-    $title = $_REQUEST['title'];
-    $content = $_REQUEST['content'];
-
-<<<<<<< HEAD
-    $stmt = $pdo->prepare("INSERT INTO articles(title,content) VALUES(':title', ':content')");
-    $stmt->execute([
-      'title' => $title,
-      'content' => $content]);
-=======
-    $stmt = $pdo->prepare("INSERT INTO data(title,content) VALUES(':title', ':content')");
-    $stmt->execute([
-      'title' => $title,
-      'content' => $content
-    ]);
->>>>>>> f2229b20d57a76c509e02e97a3df78a2a88b8397
-    $fetch = $stmt->fetch();
-
-    echo "Post created succefully";
-    header("Location: index.php?info=added");
-  }
-
   if(isset($_REQUEST["new_comment"])){
     $comment = $_REQUEST['comment_content'];
 
