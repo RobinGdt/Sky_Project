@@ -9,6 +9,7 @@
     die('Erreur : '.$e->getMessage());
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   $sql = "SELECT * FROM data";
 
@@ -25,6 +26,8 @@
     echo "Post created succefully";
     header("Location: index.php?info=added");
   }
+=======
+>>>>>>> 081b52126247f332ee345ababe7d78390932a67c
 
   if(isset($_REQUEST["new_comment"])){
     $comment = $_REQUEST['comment_content'];
@@ -70,7 +73,10 @@
 
     echo "Post deleted succefully";
   }
+<<<<<<< HEAD
 =======
   
 >>>>>>> a10746129983dfe4daf651e58c86083ec1b0cc34
+=======
+>>>>>>> 081b52126247f332ee345ababe7d78390932a67c
 ?>
