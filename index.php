@@ -27,7 +27,14 @@
     <?php foreach($fetch as $f) {?>
       <h5><?= $f['title'] ?></h5>
       <p><?= $f['content'] ?></p>
-      <button><a href="">Read more</a></button>
+      <button name="delete_article">Supprimer l'article</button>
+      <form action="GET">
+        <textarea name="comment_content"cols="12" rows="4" placeholder="comment"></textarea>
+        <button name="new_comment">Publier</button>
+        <p><?= $f['comment_content'] ?></p>
+        <button name="update_commente">Modifier</button>
+        <button name="delete_comment">Supprimer</button>
+      </form>
     <?php}?>
 
   </div>
