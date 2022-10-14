@@ -1,8 +1,5 @@
 <?php
 
-  //phpinfo();
-  $fetch = array();
-
   try{
     $pdo= new PDO('mysql:host=db:3306;dbname=data', 'root', 'root');
   } catch(Exception $e) {

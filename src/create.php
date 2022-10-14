@@ -6,8 +6,6 @@ if(isset($_POST["new_post"])){
   $title = $_REQUEST['title'];
   $content = $_REQUEST['content'];
 
-  echo 'title : '. $title;
-
   $stmt = $pdo->prepare("INSERT INTO articles(title,content) VALUES(:title, :content)");
   $stmt->execute([
     'title' => $title,
@@ -16,8 +14,7 @@ if(isset($_POST["new_post"])){
   
   $fetch = $stmt->fetch();
 
-  echo "Post created succefully";
-  header("Location: index.php?info=added");
+  header("Location: index.php");
 }
 
 ?>
