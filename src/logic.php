@@ -8,6 +8,7 @@
   } catch(Exception $e) {
     die('Erreur : '.$e->getMessage());
   };
+<<<<<<< HEAD
 
   $sql = "SELECT * FROM data";
 
@@ -69,4 +70,7 @@
 
     echo "Post deleted succefully";
   }
+=======
+  
+>>>>>>> a10746129983dfe4daf651e58c86083ec1b0cc34
 ?>

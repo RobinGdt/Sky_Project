@@ -1,3 +1,27 @@
+<?php 
+
+require_once 'logic.php';
+
+if(isset($_POST["new_post"])){
+  $title = $_REQUEST['title'];
+  $content = $_REQUEST['content'];
+
+  echo 'title : '. $title;
+
+  $stmt = $pdo->prepare("INSERT INTO articles(title,content) VALUES(:title, :content)");
+  $stmt->execute([
+    'title' => $title,
+    'content' => $content
+  ]);
+  
+  $fetch = $stmt->fetch();
+
+  echo "Post created succefully";
+  header("Location: index.php?info=added");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +32,7 @@
 </head>
 <body>
   <div class="container">
-    <form method="GET">
+    <form method="POST">
       <input type="text" name="title" placeholder="Titre">
       <textarea name="content" id="" cols="30" rows="10"></textarea>
       <button name="new_post" class="btn btn-dark">Publier</button>
