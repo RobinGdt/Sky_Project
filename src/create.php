@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once 'logic.php';
 
@@ -11,10 +11,10 @@ if(isset($_POST["new_post"])){
     'title' => $title,
     'content' => $content
   ]);
-  
-  $fetch = $stmt->fetch();
 
-  header("Location: index.php");
+  $fetch = $stmt->fetch();
+  header('Location: index.php?info=aded');
+  exit();
 }
 
 ?>

@@ -1,9 +1,8 @@
 <?php
   require_once "logic.php";
 
-  $fetch = $pdo->prepare('SELECT * from articles');
+  $fetch = $pdo->prepare('SELECT * FROM articles');
   $fetch->execute();
-
 ?>
 
 <!DOCTYPE html>
@@ -17,37 +16,38 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-  <?php if (isset($_REQUEST['info'])){ ?>
-    <?php if ($_REQUEST['info'] == "added"){?>
-      <div class="">
-        Post as been added succesfully
-      </div>
-    <?php } ?>
-  <?php } ?>
 
   <div class="container">
-      <a class="btn btn-primary" href="create.php">+ Create a new post</a>
+    <div class="">
+      <h3 class="btn btn-primary"><a class="nav-link" href="create.php">+ Create a new post +</a></h3>
+    </div>
 
     <?php foreach($fetch as $f) { ?>
       <div class="card p-3 my-3">
         <h1 class=""><?= $f['title'] ?></h1>
         <div class="card-body">
           <h3><?= $f['content'] ?></h3>
+          <form method="GET">
+            <button class="btn btn-danger" name="delete_article"><a class="nav-link" href="delete.php?id=<?= $f['id']?>">Delete article</a></button>
+          </form>
 
-          <button class="btn btn-danger" name="delete_article">Supprimer l'article</button>
-          <div class="mt-3 card-header">
-            <form class="my-5" action="GET">
-              <textarea name="comment_content"cols="12" rows="4" placeholder="comment"></textarea>
-              <button class="btn btn-success" name="new_comment">Publier</button>
-              <p><?= $f['comment_content'] ?></p>
-              <button class="btn btn-primary" name="update_commente">Modifier</button>
-              <button class="btn btn-danger" name="delete_comment" class="btn">Supprimer</button>
+          <div class="mt-3 card-header ">
+            <form class="" action="update.php?id=<?= $f['id']?>" method="POST">
+              <div class="form-group">
+                <div class="form-group">
+                  <p>=> <?= $f['comment'] ?></p>
+                </div>
+                <textarea class="form-control my-3" name="comment" id=""cols="28" rows="4" placeholder="comment"></textarea>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success" name="new_comment">Post commment</button>
+                <button class="btn btn-danger" name="delete_comment">Delete comment</button>
+              </div>
             </form>
           </div>
         </div>
       </div>
     <?php } ?>
-
   </div>
 </body>
 </html>
