@@ -1,37 +1,27 @@
 <?php
 
   require_once "logic.php";
+  // require_once "index.php";
 
-  $id_comment = $_GET['id_comment'];
+  $id = $_GET['id'];
 
   if(isset($_POST["new_comment"])){
-    $comment = $_REQUEST['comment_content'];
 
-    $stmt = $pdo->prepare("INSERT INTO articles(comment_content) VALUES(':comment')");
-    $stmt->execute([':comment' => $comment]);
-    $fetch = $stmt->fetch();
+    $comment = $_REQUEST['comment'];
+    $stmt = $pdo->prepare("UPDATE articles SET comment = :comment WHERE id = :id");
+    $stmt->execute([':comment' => $comment, ':id' => $id]);
 
-    echo "Comment added succefully";
+    header('Location: index.php');
+    exit();
   }
-  if(isset($_GET["delete_comment"])){
-    $comment = $_REQUEST['comment_content'];
+  if(isset($_POST["delete_comment"])){
+    $comment = $_REQUEST['comment'];
 
-    $stmt = $pdo->prepare("DELETE FROM articles(comment_content) WHERE id_comment = :id_comment ");
-    $stmt->execute([':id_comment' => $id_comment]);
-    $fetch = $stmt->fetch();
+    $stmt = $pdo->prepare("UPDATE articles SET comment = :comment WHERE id = :id ");
+    $stmt->execute([':id' => $id, ':comment' => NULL]);
 
-    echo "Comment added succefully";
-  }
-  if(isset($_REQUEST["update_comment"])){
-    $comment = $_REQUEST['comment_content'];
-
-    $stmt = $pdo->prepare("UPDATE articles FROM article VALUES(':comment')");
-    $stmt->execute([
-      ':comment' => $comment
-    ]);
-    $fetch = $stmt->fetch();
-
-    echo "Comment added succefully";
+    header('Location: index.php');
+    exit();
   }
 
 ?>
