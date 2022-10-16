@@ -1,7 +1,6 @@
 <?php
 
   require_once "logic.php";
-  // require_once "index.php";
 
   $id = $_GET['id'];
 
