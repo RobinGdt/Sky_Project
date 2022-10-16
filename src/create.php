@@ -13,7 +13,7 @@ if(isset($_POST["new_post"])){
   ]);
 
   $fetch = $stmt->fetch();
-  header('Location: index.php?info=aded');
+  header('Location: blog.php');
   exit();
 }
 

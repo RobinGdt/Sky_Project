@@ -1,7 +1,8 @@
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `email` varchar(180) NOT NULL,
-  `password` varchar(180) NOT NULL
+  `password` varchar(180) NOT NULL,
+  `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `articles` (
